@@ -9,3 +9,10 @@ crates.io <-- List of all crates, version can be obtained from here and added to
 
 # Progress
 NOV-22-2022: Stopped at 50:30/2:35:10
+
+# Notes
+## Build and Run
+```
+./rust_tutorial$ cargo run
+```
+
