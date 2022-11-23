@@ -1,7 +1,7 @@
 # Tutorial Source
-Youtube
-Rust Tutorial Full Course
-Derek Banas
+Youtube  
+Rust Tutorial Full Course  
+Derek Banas  
 Jul 29, 2022
 
 # Important Links
