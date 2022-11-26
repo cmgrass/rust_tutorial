@@ -8,8 +8,8 @@ Jul 29, 2022
 crates.io <-- List of all crates, version can be obtained from here and added to `[dependencies]` list in `Cargo.toml`.
 
 # Progress
-NOV-22-2022: Stopped at 00:50:30/2:35:10
-NOV-25-2022: Stopped at 01:24:57/2:35:10
+- NOV-22-2022: Stopped at 00:50:30/2:35:10
+- NOV-25-2022: Stopped at 01:24:57/2:35:10
 
 # Notes
 ## Build and Run
