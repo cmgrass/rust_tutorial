@@ -6,44 +6,308 @@ use std::io::{Write, BufReader, BufRead, ErrorKind};
 use std::fs::File;
 use std::cmp::Ordering;
 
+use std::collections::HashMap;
+
 fn main() {
-    let st3 = String::from("x r t b h k k a m c");
-    println!("st3: {}", st3);
-
-    let mut v1: Vec<char> = st3.chars().collect();
-    v1.sort();
-    v1.dedup();
-    for char in v1 {
-      println!("{}", char);
-    }
-
-    let st4: &str = "Random string literal"; // String in data segment
-    let mut st5: String = st4.to_string(); // Convert to heap
-    println!("{}", st4);
-    println!("{}", st5);
-
-    let byte_arr1 = st5.as_bytes();
-    let st6 = &st5[0..6];
-    println!("String length : {}", st6.len());
-
-    st5.clear();
-    println!("st5 : {}; length {}", st5, st5.len());
-
-    let st6 = String::from("Just some");
-    let st7 = String::from(" words");
-    let st8 = st6 + &st7; // st6 is ditched from memory, st7 stays since we just reference it
-    // println!("st6: {}", st6); <-- Errors at compile time, string was moved!
-    println!("st7: {}", st7);
-    println!("st8: {}", st8);
-
-    for char in st8.bytes() {
-      println!("{}", char);
-    }
 }
 
 
+// Example 36 (Hash maps)
+// 
+// use std::collections::HashMap;
+// 
+// fn main() {
+//     let mut heroes = HashMap::new();
+// 
+//     heroes.insert("Superman", "Clark Kent");
+//     heroes.insert("Batman", "Bruce Wayne");
+//     heroes.insert("The Flash", "Barry Allen");
+// 
+//     for(k, v) in heroes.iter() {
+//         println!("{} = {}", k, v);
+//     }
+// 
+//     if heroes.contains_key(&"Batman") {
+//       let the_batman = heroes.get(&"Batman");
+//       match the_batman {
+//         Some(x) => println!("Batman is a hero"),
+//         None => println!("Batman is not a hero"),
+//       }
+//     }
+// 
+//     println!("len: {}", heroes.len());
+// }
 
 
+// Example 35
+// 
+// fn print_str(x: String) {
+//     println!("A string {}", x);
+// }
+// 
+// fn print_return_str(x: String) -> String {
+//     println!("A string {}", x);
+//     x
+// }
+// 
+// fn change_str(name: &mut String) {
+//     name.push_str(" is happy");
+//     println!("Message : {}", name);
+// }
+// 
+// fn main() {
+//     let mut str1 = String::from("Chris");
+//     change_str(&mut str1);
+// }
+
+
+// Example 34
+// 
+// fn print_str(x: String) {
+//     println!("A string {}", x);
+// }
+// 
+// fn print_return_str(x: String) -> String {
+//     println!("A string {}", x);
+//     x
+// }
+// 
+// fn change_str(name: &mut String) {
+//     name.push_str(" is happy");
+//     println!("Message : {}", name);
+// }
+// 
+// fn main() {
+//     let str1 = String::from("World");
+//     let str2 = str1.clone(); // Now, two copies will be around
+//     let str3 = print_return_str(str1);
+//     println!("{}", str3);
+// }
+
+
+// Example 33
+// 
+// fn main() {
+//     let str1 = String::from("World");
+//     let str2 = str1.clone(); // Now, two copies will be around.
+//     println!("Hello {}", str1);
+// }
+
+
+// Example 32 ("Ownership")
+// 
+// // Stack : Stores values in a last-in/first-out format
+// // Data on the stack must have a defined fixed size
+// 
+// // Heap : When putting data on the heap, you request a
+// // certain amount of space. The OS finds space available and
+// // returns and address for that space.
+// // Rules :
+// // 1. Each value has a variable that's called its owner
+// // 2. There is only one owner at a time
+// // 3. When the owner goes out of scope, the value disappears
+// 
+// fn main() {
+//     let str1 = String::from("World");
+//     let str2 = str1; // Copied, so str1 doesn't exist anymore
+// 
+// //    println!("Hello {}", str1); // Won't build
+// }
+
+
+// Example 30 ("generics")
+// 
+// use std::ops::Add;
+// 
+// fn get_sum_generic<T:Add<Output = T>>(x: T, y: T) -> T {
+//     return x + y;
+// }
+// 
+// fn main() {
+//     println!("5 + 4 = {}", get_sum_generic(5, 4));
+//     println!("5.2 + 4.6 = {}", get_sum_generic(5.2, 4.6));
+// }
+
+
+// Example 29
+// 
+// fn sum_list(list: &[i32]) -> i32 {
+//     let mut sum = 0;
+// 
+//     for &val in list.iter() {
+//       sum += &val;
+//     }
+// 
+//     sum // No semicolon when excluding `return` statement
+// }
+// 
+// fn main() {
+//     let num_list = vec![1,2,3,4,5];
+//     println!("Sum of list = {}", sum_list(&num_list));
+// }
+
+
+// Example 28
+// 
+// fn get_2(x: i32) -> (i32, i32) {
+//     return (x+1, x+2);
+// }
+// 
+// fn main() {
+//     let (val_1, val_2) = get_2(3);
+//     println!("Nums : {} {}", val_1, val_2);
+// }
+
+
+// Example 27
+// 
+// fn get_sum_2(x: i32, y: i32) -> i32 {
+//     return x + y;
+// }
+// 
+// fn main() {
+//     println!("{}", get_sum_2(5,4));
+// }
+
+
+// Example 26
+// 
+// fn get_sum_2(x: i32, y: i32) -> i32 {
+//     x + y
+// }
+// 
+// fn main() {
+//     println!("{}", get_sum_2(5,4));
+// }
+
+
+// Example 25
+// 
+// fn get_sum(x: i32, y: i32) {
+//     println!("{} + {} = {}", x, y, (x+y));
+// }
+// 
+// fn main() {
+//     get_sum(5, 4);
+// }
+
+
+// Example 24
+// 
+// fn say_hello() {
+//     println!("Hello");
+// }
+// 
+// fn main() {
+//     say_hello();
+// }
+
+
+// Exampled 23
+// 
+// fn main() {
+//     let vec1: Vec<i32> = Vec::new();
+//     let mut vec2 = vec![1,2,3,4];
+//     vec2.push(5);
+//     println!("1st : {}", vec2[0]);
+//     let second: &i32 = &vec2[1];
+//     match vec2.get(1) {
+//         Some(second) => println!("2nd : {}", second),
+//         None => println!("No 2nd value"),
+//     }
+//     for i in &mut vec2 {
+//         *i *= 2;
+//     }
+//     for i in &vec2 {
+//         println!("{}", i);
+//     }
+//     println!("Vec length {}", vec2.len());
+//     println!("Pop : {:?}", vec2.pop());
+// }
+
+
+// Example 22
+// 
+// fn main() {
+//     enum Day {
+//         Monday,
+//         Tuesday,
+//         Wednesday,
+//         Thursday,
+//         Friday,
+//         Saturday,
+//         Sunday
+//     }
+// 
+//     impl Day {
+//         fn is_weekend(&self) -> bool {
+//             match self {
+//                 Day::Saturday | Day::Sunday => true,
+//                 _ => false
+//             }
+//         }
+//     }
+// 
+//     let today:Day = Day::Monday;
+//     match today {
+//         Day::Monday => println!("Everyone hates Mondays"),
+//         Day::Tuesday => println!("Everyone hates Mondays"),
+//         Day::Wednesday => println!("Everyone hates Mondays"),
+//         Day::Thursday => println!("Everyone hates Mondays"),
+//         Day::Friday => println!("Everyone hates Mondays"),
+//         Day::Saturday => println!("Everyone hates Mondays"),
+//         Day::Sunday => println!("Everyone hates Mondays"),
+//     }
+// 
+//     println!("Is today the weekend {}", today.is_weekend());
+// }
+
+
+// Example 21
+// 
+// fn main() {
+//     let int_u8: u8 = 5;
+//     let int2_u8: u8 = 4;
+//     let int3_u32: u32 = (int_u8 as u32) + (int2_u8 as u32); // Example of casting
+// }
+
+
+// Example 20
+//
+// fn main() {
+//     let st3 = String::from("x r t b h k k a m c");
+//     println!("st3: {}", st3);
+// 
+//     let mut v1: Vec<char> = st3.chars().collect();
+//     v1.sort();
+//     v1.dedup();
+//     for char in v1 {
+//       println!("{}", char);
+//     }
+// 
+//     let st4: &str = "Random string literal"; // String in data segment
+//     let mut st5: String = st4.to_string(); // Convert to heap
+//     println!("{}", st4);
+//     println!("{}", st5);
+// 
+//     let byte_arr1 = st5.as_bytes();
+//     let st6 = &st5[0..6];
+//     println!("String length : {}", st6.len());
+// 
+//     st5.clear();
+//     println!("st5 : {}; length {}", st5, st5.len());
+// 
+//     let st6 = String::from("Just some");
+//     let st7 = String::from(" words");
+//     let st8 = st6 + &st7; // st6 is ditched from memory, st7 stays since we just reference it
+//     // println!("st6: {}", st6); <-- Errors at compile time, string was moved!
+//     println!("st7: {}", st7);
+//     println!("st8: {}", st8);
+// 
+//     for char in st8.bytes() {
+//       println!("{}", char);
+//     }
+// }
 
 
 // Example 19
