@@ -10,6 +10,7 @@ crates.io <-- List of all crates, version can be obtained from here and added to
 # Progress
 - NOV-22-2022: Stopped at 00:50:30/2:35:10
 - NOV-25-2022: Stopped at 01:24:57/2:35:10
+- NOV-26-2022: Stopped at 02:15:00/2:35:10
 
 # Notes
 ## Build and Run
