@@ -50,6 +50,11 @@ NOTE: Binary can be manually run:
 ./$ cargo run
 ```
 
+## Build and Run with arguments
+```
+./$ cargo run -- <first_arg> <second_arg>
+```
+
 ## Check if rust is installed, and what version
 ```
 ./$ rustc --version
