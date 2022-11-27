@@ -13,8 +13,23 @@ crates.io <-- List of all crates, version can be obtained from here and added to
 - NOV-26-2022: Done
 
 # Notes
+## Create a new rust program
+```
+./$ cargo new <new_project_folder_name>
+```
+
 ## Build and Run
 ```
-./rust_tutorial$ cargo run
+./$ cargo run
+```
+
+## Check if rust is installed, and what version
+```
+./$ rustc --version
+```
+
+## Update rust
+```
+./$ rustup update
 ```
 
