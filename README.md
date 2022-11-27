@@ -18,6 +18,16 @@ crates.io <-- List of all crates, version can be obtained from here and added to
 ./$ cargo new <new_project_folder_name>
 ```
 
+## Check the source (doesn't build a binary)
+```
+./$ cargo check
+```
+
+## Build the binary (doesn't run)
+```
+./$ cargo build
+```
+
 ## Build and Run
 ```
 ./$ cargo run
