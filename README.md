@@ -23,9 +23,26 @@ crates.io <-- List of all crates, version can be obtained from here and added to
 ./$ cargo check
 ```
 
-## Build the binary (doesn't run)
+## Build the binary for debug mode (doesn't run)
 ```
 ./$ cargo build
+
+NOTE: Binary can be found:
+./target/debug/<program_name>
+
+NOTE: Binary can be manually run:
+./$ ./target/debug/<program_name>
+```
+
+## Build the binary for release mode (doesn't run)
+```
+./$ cargo build --release
+
+NOTE: Binary can be found:
+./target/release/<program_name>
+
+NOTE: Binary can be manually run:
+./$ ./target/release/<program_name>
 ```
 
 ## Build and Run
